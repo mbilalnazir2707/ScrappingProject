@@ -1,0 +1,270 @@
+#stops * {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease
+}
+
+#stops {
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%
+}
+
+#stops .stops-container {
+    border-top: 1px solid #9acc36;
+    margin: 0 auto;
+    max-width: 294px;
+    position: relative;
+    width: 100%
+}
+
+@media screen and (max-width:768px) {
+    #stops .stops-container {
+        margin: 0 auto 12px auto;
+        max-width: 500px;
+        width: 90%
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:768px) {
+    #stops .stops-container {
+        width: 500px
+    }
+}
+
+@media screen and (max-width:600px) {
+    #stops .stops-container {
+        max-width: 420px
+    }
+}
+
+@media screen and (max-width:500px) {
+    #stops .stops-container {
+        max-width: 340px
+    }
+}
+
+@media screen and (max-width:414px) {
+    #stops .stops-container {
+        max-width: 260px
+    }
+}
+
+#stops .stops-container>[data-step] {
+    height: 22px;
+    position: absolute;
+    top: -11px;
+    width: 22px
+}
+
+#stops .stops-container>[data-step]:nth-child(1) {
+    left: -11px
+}
+
+#stops .stops-container>[data-step]:nth-child(2) {
+    left: 33%;
+    margin-left: -11px
+}
+
+#stops .stops-container>[data-step]:nth-child(3) {
+    left: 66%;
+    margin-left: -11px
+}
+
+#stops .stops-container>[data-step]:nth-child(4) {
+    right: -11px
+}
+
+#stops [data-step] {
+    background: #fff;
+    border: 1px solid transparent;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    float: left;
+    height: 22px;
+    margin-left: 57px;
+    position: absolute;
+    top: -11px;
+    width: 22px;
+    z-index: 1
+}
+
+@media screen and (min-width:768px) and (max-width:909px) {
+    #stops [data-step] {
+        margin-left: 40px
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:767px) {
+    #stops [data-step] {
+        margin-left: 120px
+    }
+}
+
+#stops [data-step]>.stops-label {
+    background: 0 0;
+    color: #bcc1c5;
+    font-size: 12px;
+    left: -21px;
+    position: absolute;
+    text-align: center;
+    top: -20px;
+    min-width: 60px
+}
+
+#stops [data-step][data-is=checked],
+#stops [data-step][data-is=full] {
+    border: 1px solid #9acc36
+}
+
+#stops [data-step][data-is=checked]>.stops-label,
+#stops [data-step][data-is=full]>.stops-label {
+    color: #67757e
+}
+
+#stops [data-step][data-is=checked]::before,
+#stops [data-step][data-is=full]::before,
+#stops [data-step][data-is=past]::before {
+    background: #9acc36;
+    content: "";
+    z-index: 3
+}
+
+#stops [data-step][data-is=checked]::before {
+    color: #fff;
+    content: "\f00c";
+    font-family: fontawesome;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center
+}
+
+#stops [data-step]::before {
+    background: 0 0;
+    border: 1px solid #9acc36;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    content: '';
+    height: 16px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 16px;
+    z-index: 2
+}
+
+#stops [data-step]:first-of-type {
+    margin-left: 0
+}
+
+#stops [data-step]:not([data-step="4"])::after {
+    background: #9acc36;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwNWYyMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMDVmMjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #9acc36), to(transparent));
+    background-image: -webkit-linear-gradient(left, #9acc36 100%, transparent 100%);
+    background-image: linear-gradient(to right, #9acc36 100%, transparent 100%);
+    background-position: 0 1.13em;
+    background-repeat: repeat-x;
+    -webkit-background-size: 100% 100%;
+    color: #9acc36;
+    content: '';
+    height: 17px;
+    left: 21px;
+    position: absolute;
+    top: -7px;
+    width: 57px
+}
+
+@media screen and (min-width:767px) and (max-width:909px) {
+    #stops [data-step]:not([data-step="4"])::after {
+        width: 40px
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:767px) {
+    #stops [data-step]:not([data-step="4"])::after {
+        width: 120px
+    }
+}
+
+#stops .ed-consultation {
+    margin-left: -24px;
+    max-width: 768px!important;
+    width: 100%!important
+}
+
+#stops .ed-consultation.nav-tabs.affix {
+    background: #fff;
+    border: none
+}
+
+#stops .ed-consultation #stops {
+    width: 100%
+}
+
+#stops .ed-consultation .alert.info-message {
+    max-width: 80%
+}
+
+@media screen and (max-width:768px) {
+    #stops .ed-consultation .alert.info-message {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        width: 100%
+    }
+}
+
+#stops .ed-consultation [data-step]:first-of-type {
+    margin-left: 17px
+}
+
+@media screen and (min-width:640px) {
+    #stops .ed-consultation .alert {
+        margin: 0 auto
+    }
+    #stops .ed-consultation #stops {
+        max-width: 500px;
+        width: 100%
+    }
+    #stops .ed-consultation [data-step]:not([data-step="1"]) {
+        margin-left: 120px
+    }
+    #stops .ed-consultation [data-step]:not([data-step="4"])::after {
+        width: 120px
+    }
+}
+
+#stops * {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease
+}
+
+#stops div,
+#stops span,
+.stops-container {
+    background: #fff
+}
+
+.stops-col {
+    background: #fff;
+    padding-top: 24px;
+    z-index: 11
+}
+
+button {
+	cursor:pointer !important;	
+}
+.online_consultant_area button input[type="radio"]{
+    display: none !important;
+}
+
+.online_consultant_area label,{
+	font-weight:normal !important;	
+}
+
+.hidden {
+	display:none !important;	
+}

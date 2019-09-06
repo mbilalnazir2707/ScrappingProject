@@ -1,0 +1,308 @@
+.rotaLoading { position:fixed; top:0; left:0; }
+.rotaLoading { background-color:transparent; background-image:url('./assets/images/loading.gif'); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+.rotaLoading:hover { background-color:transparent;  }
+.rotaLoading { opacity:.2; }
+
+.rotaT { position:relative; top:15px; overflow-y: auto; /*max-height: 480px;*/ left:0; width:100%; /*padding:20px 0 0 0;*/ }
+.rotaM { position:fixed; top:0; left:0; width:100%; z-index:70; overflow-y:auto; overflow-x:hidden; }
+.rotaB { position:fixed; bottom:0; left:0; width:100%; padding:17px 0 0 0; z-index:90; background-color:#fbfbfb; border-top:1px solid #e0e0e0; box-shadow:0 0 5px rgba(0,0,0,.2); }
+.rota_container {overflow-x: hidden; height:480px;}
+.rotaT .holder > .floatLeft,.rotaT .holder > .floatRight { height:40px; }
+.rotaT .holder > .floatLeft { margin:0 20px 19px 0; }
+.rotaT .dateSelector { margin-top:9px; margin-left:30px; }
+.rotaT .iconButtons { margin-bottom:0; }
+#dropdownLocation { margin-right:20px; }
+#dropdownLocation .dropdownButtonTitle { max-width:240px; }
+.rotaM .rotaHolder { margin-bottom:30px; margin-top:-1px; }
+.rotaM .holder { padding-bottom:1px; }
+.rotaT .rotaHolder { margin-bottom:1px; }
+.rotaT .rotaHolder th { vertical-align:top; }
+#printModal .printModalToggle { margin:0 0 10px 0; }
+#printModal .printModalToggle input { margin-right:4px; }
+#rotaPrintInfo { font-size:14px; color:#000; margin:0 0 15px 0; }
+#rotaAddEmployeeModal { width:800px; }
+.rotaAddEmployee { height:60px; padding:0; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/rotaAddEmployee.png'); background-size:25px 25px; background-position:center center; background-repeat:no-repeat; }
+.rotaAddEmployeeRow .rotaAddEmployeeRowBlank { border-left:0; border-right:0; border-bottom:0; }
+#rotaMassAddDropzone { position:absolute; top:-16px; right:0; width:180px; height:71px; display:none; }
+#rotaMassAddDropzone .rotaMassAddDropzoneInner { position:absolute; top:14px; right:30px; width:42px; height:42px; padding:5px 0 0 0; cursor:pointer; text-align:center; font-size:2.5em; font-weight:500; color:#b0b3b7; border:2px solid #b0b3b7; -moz-border-radius:50%; border-radius:50%; -webkit-border-radius:50%; box-sizing:border-box; }
+.rotaDragging #rotaMassAddDropzone { display:block; }
+/*.rotaMode_massAdding #rotaMassAddDropzone { display:block; }*/
+#rotaMassAddDropzone.rotaCellDroppableOver .rotaMassAddDropzoneInner { border-color:#33afdf; color:#33afdf; }
+.rotaMode_massAdding #rotaMassAddDropzone .rotaMassAddDropzoneInner { border-color:#33afdf; color:#33afdf; -ms-transform:rotate(45deg); -webkit-transform:rotate(45deg); transform:rotate(45deg); }
+.rotaModeMessage { margin-right:40px !important; box-sizing:border-box; padding:9px 0 0 0; }
+.rotaModeMessage span { font-size:1.3em; font-weight:bold; color:#666; }
+.rotaModeMessage span,.rotaModeMessage a { margin-right:30px; }
+.rotaModeMessage .rotaModeCancel { font-weight:bold; }
+.rotaModeMessage_quickPublish { display:none; }
+.rotaMode_quickPublish .rotaModeMessage_quickPublish { display:block; }
+.rotaMode_quickPublish .dropdownLocation,.rotaMode_quickPublish .dropdownCopy,.rotaMode_quickPublish .dropdownTools,.rotaMode_quickPublish .dropdownPublish,.rotaMode_quickPublish .seenShifts,.rotaMode_quickPublish .rotaHolderDayNote { display:none !important; }
+.rotaModeMessage_copying { display:none; }
+.rotaMode_copying .rotaModeMessage_copying { display:block; }
+.rotaMode_copying .dropdownLocation,.rotaMode_copying .dropdownCopy,.rotaMode_copying .dropdownTools,.rotaMode_copying .dropdownPublish,.rotaMode_copying .seenShifts { display:none !important; }
+.rotaModeMessage_massAdding { display:none; }
+.rotaMode_massAdding .rotaModeMessage_massAdding { display:block; }
+.rotaMode_massAdding .dropdownLocation,.rotaMode_massAdding .dropdownCopy,.rotaMode_massAdding .dropdownTools,.rotaMode_massAdding .dropdownPublish,.rotaMode_massAdding .seenShifts,.rotaMode_massAdding .rotaHolderDayNote { display:none !important; }
+.rotaModeMessage_setDaysOff { display:none; }
+.rotaMode_setDaysOff .rotaModeMessage_setDaysOff { display:block; }
+.rotaMode_setDaysOff .dropdownLocation,.rotaMode_setDaysOff .dropdownCopy,.rotaMode_setDaysOff .dropdownTools,.rotaMode_setDaysOff .dropdownPublish,.rotaMode_setDaysOff .seenShifts,.rotaMode_setDaysOff .rotaHolderDayNote { display:none !important; }
+.rotaMode_quickPublish th,.rotaMode_setDaysOff th { cursor:pointer; }
+.rotaMode_quickPublish .rotaEmployee,.rotaMode_setDaysOff .rotaEmployee { cursor:pointer; }
+.rotaMode_setDaysOff .rotaShift:hover,.rotaModeMessage_massAdding .rotaShift:hover { background-color:rgba(255,255,255,.7) !important; }
+.rotaMode_quickPublish .rotaShiftDelete,.rotaMode_copying .rotaShiftDelete,.rotaMode_massAdding .rotaShiftDelete,.rotaMode_setDaysOff .rotaShiftDelete { display:none !important; }
+.modalTimezoneSelector { max-width:375px; }
+.modalTimezoneSelector select { width:100%; margin-bottom:20px; }
+.rotaSHeader { position:fixed; top:0; left:0; width:100%; background-color:#33afdf; background-color:#5cbce2; /*border-top:1px solid rgba(255,255,255,.1);*/ color:#fff; z-index:120; padding:15px 0 15px 0; box-sizing:border-box; }
+.rotaSHeader a { color:#fff; }
+.rotaSHeader select { margin:0 0 8px 0; width:80%; padding:0 0 10px 0; border:0; background-image:none; -webkit-appearance:none; text-align:center; color:#fff; background-color:transparent; box-shadow:none; -moz-box-shadow:none; -webkit-box-shadow:none; }
+.rotaSHeaderDate { text-align:center; margin:2px 0 7px 0; font-size:1.3em; white-space:nowrap; }
+.rotaSHeaderAdd { position:absolute; top:7px; right:23px; width:30px; height:30px; font-size:3em; font-weight:bold; line-height:0; text-align:center; }
+.rotaSNext,.rotaSPrev { position:absolute; bottom:17px; cursor:pointer; }
+.rotaSNext { right:20px; width:0; height:0; border-style:solid; border-width:12px 0 12px 12px; border-color:transparent transparent transparent #ffffff; }
+.rotaSPrev { left:20px; width:0; height:0; border-style:solid; border-width:12px 12px 12px 0; border-color:transparent #ffffff transparent transparent; }
+.rotaSDaySetSeen { background-color:#83b902; color:#fff; text-align:center; padding:18px 0 21px 0; font-size:1.3em; font-weight:600; cursor:pointer; }
+.no-touch .rotaSDaySetSeen:hover { background-color:#77a900; }
+.rotaSShift { border-bottom:1px solid #dce2e4; padding:10px; box-sizing:border-box; overflow:hidden; background-color:#fff; }
+.rotaSShiftInner { border-left:5px solid #dce2e4; padding:0 10px 0 10px; }
+.rotaSShiftAvatar { float:left; margin:0 10px 0 0; width:40px; height:40px; background-color:#dce2e4; overflow:hidden; -moz-border-radius:50%; border-radius:50%; -webkit-border-radius:50%; background-repeat:no-repeat; background-position:center center; background-size:cover; }
+.rotaSShiftInfo { float:left; width:80%; }
+.rotaSShiftInfo p { margin:0; font-size:.9em; line-height:1.2em; }
+.rotaSShiftInfo p:first-child { margin:0; font-size:1.2em; }
+.rotaSShiftTime { font-weight:600; margin:0 10px 0 0; }
+.rotaSShiftName { font-weight:400; }
+.rotaSShiftUnpublished .rotaSShiftInner,.rotaSShiftUnpublished .rotaSShiftSub,.rotaSShiftUnpublished .calendarDot { opacity:.6; }
+.rotaSShiftUnpublished .rotaSShiftInfo { opacity:.6; }
+.rotaSShiftUnpublished h3 { color:#b0b3b7; }
+.rotaSShiftClickable { cursor:pointer; }
+.rotaSShiftNote { display:none; margin:0 0 0 5px; position:relative; top:2px; }
+.rotaSShiftHasNote .rotaSShiftNote { display:inline; }
+.rotaSShiftOpen,.rotaSAdd,.rotaSNote,.no-touch .rotaSShiftClickable:hover { background-color:#f7fafc; }
+.rotaSShiftDot { display:none; position:absolute; top:17px; right:15px; width:6px; height:6px; background-color:#dce2e4; -moz-border-radius:50%; border-radius:50%; -webkit-border-radius:50%; }
+.rotaSShiftDot_2 { top:27px; }
+.rotaSShiftDot_3 { top:37px; }
+.rotaSShiftClickable .rotaSShiftDot { display:block; }
+.rotaSNote { border-bottom:1px solid #dce2e4; padding:15px 15px 0 15px; font-style:italic; }
+.rotaSShift .rotaSNote { border:1px solid #dce2e4; background-color:#fff; margin:0 0 10px 0; padding:15px 15px 15px 15px; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; }
+.rotaSAdd { padding:15px; box-sizing:border-box; border-bottom:1px solid #dce2e4; }
+.rotaSShiftEdit > form > .btn { width:100%; font-size:1.3em; margin:0 0 20px 0; padding:11px 0 12px 0; }
+.rotaSShiftEdit table { width:100%; margin:0 0 20px 0; }
+.rotaSShiftEdit table tr td { padding:5px 0 5px 0; }
+.rotaSShiftEdit .rotaSShiftEditIcon { width:33px; background-size:16px 16px; padding:0 !important; background-position:5px 16px; background-repeat:no-repeat; }
+.rotaSShiftEdit table input,.rotaSShiftEdit table textarea { background-color:#fff; }
+.rotaSShiftEdit textarea { height:60px !important; }
+.rotaSShiftEdit .modalDelete { position:absolute; top:16px; right:10px; height:30px; }
+.rotaSShiftEdit .rotaSShiftEditTime .rotaSShiftEditIcon { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/editShiftTime.png'); }
+.rotaSShiftEdit .rotaSShiftEditBreak .rotaSShiftEditIcon { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/editShiftTime.png'); }
+.rotaSShiftEdit .rotaSShiftEditEmployee .rotaSShiftEditIcon { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/editShiftEmployee.png'); }
+.rotaSShiftEdit .rotaSShiftEditRole .rotaSShiftEditIcon { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/editShiftRole.png'); }
+.rotaSShiftEdit .rotaSShiftEditNote .rotaSShiftEditIcon { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/editShiftNote.png'); }
+.rotaSShiftEdit .rotaSShiftEditBreak input { width:50px; text-align:center; padding-left:0; padding-right:0; }
+.rotaSShiftEdit .rotaSShiftEditPublish td { padding-top:15px; }
+#rotaSShiftTools .rotaSShiftEditTime input { width:70%; }
+.rotaSShiftTools { width:100%; margin:10px 0 -10px 0; box-sizing:border-box; }
+.rotaSShiftTools .btn { font-size:1em; padding-top:9px; padding-bottom:10px; }
+.rotaSShiftTools > .btn { background-repeat:no-repeat; float:left; margin-bottom:10px; margin-right:10px; font-size:1em; }
+.rotaSShiftTools .rotaSRequestUnavailabilityBtn { width:80px; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoRequest.png'); padding-left:43px; background-size:30px 25px; background-position:6px 6px; }
+.rotaSShiftTools .rotaSRequestSwapBtn { width:80px; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoSwap.png'); padding-left:46px; background-size:33px 25px; background-position:6px 6px; }
+.rotaSShiftToolsTool { margin:10px 0 20px 0; }
+.rotaSShiftToolsTool textarea { height:60px; }
+.rotaSShiftDashboard { padding:15px 15px 3px 15px; }
+.rotaSShiftDashboard h3 { margin:0 0 12px 0; }
+.rotaSShiftDashboard .rotaSShiftInner { border:0; padding:0; }
+.rotaSShiftSub { font-weight:bold; color:#b0b3b7; margin:0 0 12px 0; }
+.rotaSShiftSub span { margin:0 20px 0 0; white-space:nowrap; }
+.rotaSShiftSub span img { position:relative; top:2px; margin:0 4px 0 0; }
+.rotaSDate { background-color:transparent; border-bottom:1px solid #dce2e4; box-sizing:border-box; padding:7px 10px 8px 10px; }
+.rotaSDate.lighter { color:#b0b3b7; }
+.rotaSDate span { font-size:1.2em; margin:0 3px 0 0; font-weight:bold; }
+.rotaSDayToggle { margin:0 0 0 10px; float:left; text-align:center; font-size:.9em; cursor:pointer; }
+.rotaSDayToggle .rotaSDayToggleDate { margin:2px 0 0 0; width:40px; height:40px; background-color:transparent; font-weight:bold; font-size:1.4em; -moz-border-radius:50%; border-radius:50%; -webkit-border-radius:50%; box-sizing:border-box; }
+.rotaSDayToggleA .rotaSDayToggleDate { background-color:#fff; color:#33afdf; }
+/*.developerMode .rotaSHeader { background-color:#505050; }
+.developerMode .rotaSDayToggleA .rotaSDayToggleDate { color:#505050; }*/
+.rotaHolder { width:100%; table-layout:fixed; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; }
+.rotaHolder tr td,.rotaHolder tr th { border:1px solid #dce2e4; vertical-align:top; padding:5px; text-align:center; font-weight:normal; background-clip:padding-box; font-size: 13px; }
+.rotaHeader th { background-color:#f7f8fa; vertical-align:middle; padding-top:10px; }
+.rotaHeader th b.larger { font-size:1.3em; margin:0 3px 0 3px; }
+.rotaM .rotaHeader .rotaHolderDayNote { display:none; }
+.rotaDayNoteVisible { margin:6px 3px 0 3px; display:none; border-top:1px dashed #d0d0d0; padding-top:6px; }
+.rotaShowNotes .rotaDayNoteVisible { display:block; }
+.rotaShowNotes .rotaHolderHasDayNote .rotaHolderDayNote { display:none; }
+.rotaInfoData { margin:0 40px 19px 0;  }
+.rotaInfoData p { margin:0; }
+.rotaInfoData p.larger { font-weight:bold; }
+.rotaInfoData p.smaller { margin-bottom:3px; }
+.rotaHolderDayNote { float:right; display:none; margin:1px 1px 0 0; width:16px; height:16px; background-color:#777; cursor:pointer; background-size:cover; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/note.png'); background-repeat:no-repeat; background-position:center center; }
+.lighter .rotaHolderDayNote { background-color:#ccc; }
+.rotaHolderHasDayNote .rotaHolderDayNote,th:hover .rotaHolderDayNote { display:block; }
+.rotaHolderHasDayNote { cursor:pointer; }
+.rotaEmployee { min-height:60px; padding:10px 5px 12px 13px; box-sizing:border-box; -webkit-user-select:auto; -moz-user-select:auto; -ms-user-select:auto; }
+.rotaEmployeeHolder { background-color:#fbfbfb; padding:1px !important; }
+.rotaEmployeeHolderPast { color:#b0b3b7; }
+.rotaEmployee .overWeeklyHours { cursor:pointer; }
+.rotaEmployee .overWeeklyHours b { color:inherit; cursor:pointer; }
+.rotaEmployee .rotaEmployeeInfo { white-space:normal; line-height:1.4em; }
+.rotaEmployee .rotaEmployeeInfo span { white-space:nowrap; }
+.rotaEmployee .rotaEmployeeName { font-weight:bold; margin-top:2px; margin-bottom:4px; font-size:.9em; }
+.rotaHolderAvatars .rotaEmployee { padding-left:28px !important; }
+.rotaEmployee .rotaEmployeeAvatar { position:absolute; top:10px; left:-22px; width:40px; height:40px; -moz-border-radius:50%; border-radius:50%; -webkit-border-radius:50%; overflow:hidden; background-repeat:no-repeat; background-position:center center; background-size:cover; }
+.rotaSeen { display:none; position:absolute; top:1px; right:1px; width:23px; height:23px; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/seenAll.png'); background-size:contain; background-position:right top; cursor:pointer; }
+.rotaRowSeenAll .rotaSeen,.rotaRowSeenSome .rotaSeen { display:block; }
+.rotaRowSeenSome .rotaSeen { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/seenSome.png'); }
+.rotaShift { margin:0 0 5px 0; overflow:hidden; padding:5px 5px 7px 7px; box-sizing:border-box; border-left:3px solid #ddd; background-color:#fff; background-color:rgba(255,255,255,.7); background-repeat:no-repeat; background-size:12px 12px; background-position:right top; }
+.rotaShift:last-child { margin-bottom:0; }
+.rotaShift p,.rotaEmployee p { line-height:1.2em; margin:0; /*display:block;*/ overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.rotaShift .rotaShiftTime { font-weight:bold; font-size:.9em; margin:0 5px 0 0; white-space:normal; }
+.rotaShift .rotaShiftRole { margin:4px 0 0 0; }
+.rotaShift .rotaShiftNotesVisible { margin:6px 0 0 0; font-size:.9em; line-height:1.2em; display:none; }
+.rotaShift .rotaShiftDelete { /*position:absolute;*/ font-size:18px; color:#b0b3b7; line-height:0; display:block; }
+.rotaShift .rotaShiftSwap,.rotaShift .rotaShiftUnavailability { margin:7px 0 0 0; }
+.rotaShift .rotaShiftSwap img,.rotaShift .rotaShiftUnavailability img { width:18px; height:18px; }
+.rotaShift .rotaShiftIcon { width:16px; height:16px; margin:2px 5px 0 0; background-position:center center; background-repeat:no-repeat; background-size:contain; }
+.rotaShift .rotaShiftIconNotes { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/tack.png'); }
+.rotaShift .rotaShiftIconAbsent { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/absent.png'); }
+.rotaShift .rotaShiftIconLate { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/late.png'); }
+.rotaShift .rotaShiftIconSick { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/sick.png'); }
+.rotaShiftOtherLocation .rotaShiftIcon,.rotaShiftUnpublished .rotaShiftIcon { opacity:.3; }
+.rotaRowCantWork .rotaCell { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/rotaCellCantWork.png') !important; background-position:center center; background-size:18px 18px; background-repeat:no-repeat; }
+.rotaRowCantWork .rotaShift { background-color:transparent !important; opacity:.3; }
+tr.rotaShowSeen .rotaShiftSeen { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/seenAll.png'); }
+tr.rotaShowSeen .rotaShiftUnseen { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/seenSome.png'); }
+.rotaAvailability { display:none; margin:0 0 6px 0; padding:0 0 3px 0; border-bottom:1px dashed #e0e0e0; line-height:1em; font-size:.8em; font-weight:600; text-shadow:0 0 2px #fff; pointer-events:none; }
+.rotaAvailabilityTimes { margin:0 0 3px 0; }
+.rotaShowAvailability .rotaAvailability { display:block; }
+#rotaToggleAvailabilityHide { display:none; }
+.rotaShowAvailability #rotaToggleAvailabilityShow { display:none; }
+.rotaShowAvailability #rotaToggleAvailabilityHide { display:block; }
+.rotaHolder .rotaRowGroup td { border-top-width:3px; background-color:#f0f0f0; color:#b0b3b7; padding:4px 0 7px 32px; font-size:1.1em; font-weight:bold; cursor:pointer; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/rowDropShowing.png'); background-repeat:no-repeat; background-position:11px 9px; background-size:12px 12px; }
+.rotaHolder .rotaRowGroup td b { color:#b0b3b7; }
+.rotaHolder .rotaRowGroupHidden td { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/rowDropHidden.png'); background-position:11px 9px; }
+.rotaShiftNotQualified .rotaShiftRole { color:#c00; }
+.rotaShiftClickable { cursor:pointer; }
+.rotaShiftClickable:hover { background-color:#fbfbfb; }
+.rotaShiftClickable:hover .rotaShiftDelete { display:block; }
+.rotaCellLeave .rotaShiftClickable:hover { background-color:#fff; }
+.rotaShiftUnpublished,.rotaShiftUnpublished .rotaShiftRole { color:#b0b3b7; }
+.rotaCellDroppableOver { background-color:#fbfbfb; }
+.rotaCellHover { cursor:pointer; }
+.rotaCellHover:hover { background-color:#fbfbfb; }
+.rotaCellClickable { cursor:pointer; }
+.rotaCellLeave { background-position:center center; background-repeat:no-repeat; }
+.rotaCellDayOff { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/patterns/rotaCellDayOff.gif') !important; background-position:center center; background-repeat:no-repeat; }
+.rotaCellLeave  { background-image:url("//rotacloud.s3.amazonaws.com/assets/img/app/patterns/rotaCellLeave_1.gif") !important; background-position:center center; background-repeat:no-repeat; }
+.rotaAlignedTo { background-color:#fbfbfb; }
+.rotaAlignedTo .rotaShiftDelete { display:none !important; }
+.rotaCellLeave .rotaAlignedTo { background-color:#fff; }
+.rotaHolder tr.rotaRowOpen td { border-bottom-width:3px; }
+.rotaBirthday { color:#f6516f; margin:0 0 5px 0; pointer-events:none; }
+.rotaShiftLoading { background-color:transparent; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/loading.gif'); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+.rotaShiftLoading:hover { background-color:transparent;  }
+.rotaShiftLoading .rotaShiftTime,.rotaShiftLoading .rotaShiftRole { opacity:.2; }
+.rotaShiftLoading .rotaShiftIcon,.rotaShiftLoading .rotaShiftDelete { display:none; }
+.rotaCellLoading { background-color:#fff; }
+.rotaCellLoading:hover { background-color:#fff; }
+.rotaShiftHolder { background-color:transparent; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/loading.gif'); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+.rotaShiftHolder:hover { background-color:transparent;  }
+.rotaShiftDragging { background-color:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); }
+.rotaShiftDragging .rotaShiftDelete { display:none; }
+.rotaShiftDragging:hover { background-color:#fff; }
+.rotaShiftDragging:hover .rotaShiftDelete { display:none; }
+.rotaRowOpen .rotaShiftDragging:hover,.rotaRowYou .rotaShiftDragging:hover { background-color:#fff; }
+.rotaShiftOtherLocation { border-style:dotted; border-left-width:2px; font-style:italic; }
+.rotaShiftOtherLocation .rotaShiftTime { font-weight:normal; }
+.rotaShiftOtherLocation,.rotaShiftOtherLocation .rotaShiftRole { color:#b0b3b7 !important; }
+#deleteRota { width:380px; }
+#copyModal { width:840px; }
+#notesModal #notesText { height:90px; }
+#notesModal .input { max-width:none; }
+#sortModal { width:430px; }
+#sortModal .accountInfo { white-space:nowrap; }
+#exportModal,#shareModal { max-width:800px; }
+.shiftInfo { background-color:#fff; border-left:1px solid #F93; border-right:1px solid #F93; -moz-border-radius:0; border-radius:0; -webkit-border-radius:0; }
+.shiftInfo table { width:auto; }
+.shiftInfo table tr td { padding:5px 0 5px 0; vertical-align:middle; border:0; }
+.shiftInfo table tr td.alignRight { font-weight:bold; text-align:right; padding-right:13px; }
+.shiftInfo textarea { height:60px; }
+.shiftInfo #shiftInfoSubmitTime { width:170px; }
+.shiftInfo #shiftInfoSubmitBreak { padding-right:0; padding-left:0; text-align:center; }
+.shiftInfo #shiftInfoSubmitNotes { height:97px; }
+.shiftInfo #shiftInfoSubmitNotes,.shiftInfo #shiftInfoSubmitRole,.shiftInfo #shiftInfoSubmitEmployee { width:382px; }
+.shiftInfo #shiftInfoSubmitAttendance { width:100%; margin-bottom:10px; }
+.shiftInfo > .padding { padding:15px; }
+.shiftInfo h2 { color:#33afdf; font-weight:600; font-size:1.5em; }
+.shiftInfo h3 { color:#33afdf; font-weight:600; margin:1.4em 0 .6em 0; }
+.shiftInfo select { width:150px; }
+.shiftInfo .shiftInfoAdminUnavailabilityInfo { margin:0 0 20px 0; }
+.shiftInfo .shiftInfoAdminUnavailabilityInfoMessage { margin:15px 0 0 0; background-color:#f0f0f0; font-style:italic; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; }
+.shiftInfo .shiftInfoAdminUnavailabilityInfoMessage .padding { padding:10px 12px 12px 12px; }
+.shiftInfo .shiftInfoStalkL { position:absolute; top:0; left:-10px; width:10px; height:15px; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkL.png'); background-size:cover; }
+.shiftInfo .shiftInfoStalkR { position:absolute; top:0; right:-10px; width:10px; height:15px; background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkR.png'); background-size:cover; }
+.shiftInfo .modalDelete { bottom:11px; right:7px; }
+.shiftInfo .message { margin:0 0 15px 0; }
+.shiftInfoMore { position:absolute; top:15px; right:20px; width:24px; height:24px; }
+.shiftInfoMore .shiftInfoMoreDot { position:absolute; top:11px; width:6px; height:6px; background-color:#afb4ba; -moz-border-radius:50%; border-radius:50%; -webkit-border-radius:50%; }
+.shiftInfoMore .shiftInfoMoreDot1 { left:0px; }
+.shiftInfoMore .shiftInfoMoreDot2 { left:9px; }
+.shiftInfoMore .shiftInfoMoreDot3 { right:0px; }
+.shiftInfo .shiftInfoIcon { text-align:center; width:25px; padding:14px 14px 0 0 !important; vertical-align:top; }
+.shiftInfo .shiftInfoPublish td { padding-top:10px; padding-bottom:10px; }
+.shiftInfo .shiftInfoTempCoverMessage { margin:10px 0 0 0; width:360px; box-sizing:border-box; background-color:#33afdf; color:#fff; padding:10px; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; }
+.shiftInfo .shiftInfoTempCoverMessage div { position:absolute; top:-7px; left:15px; width:0; height:0; border-style:solid; border-width:0 7px 7px 7px; border-color:transparent transparent #33afdf transparent; }
+.shiftInfo .shiftInfoSubBtn { font-weight:500; color:#33afdf; margin:0 35px 19px 0; cursor:pointer; }
+.shiftInfo .shiftInfoSubBtn i { margin:0 3px 0 0; }
+.shiftInfo .shiftInfoSwapTab select { width:auto; max-width:310px; }
+.shiftInfo .shiftInfoHidePast { display:block; visibility:visible; }
+.shiftInfo .shiftInfoShowPast { display:none; visibility:hidden; }
+.shiftInfo span.shiftInfoHidePast { display:inline; }
+.shiftInfoPast .shiftInfoHidePast { display:none; visibility:hidden; }
+.shiftInfoPast .shiftInfoShowPast { display:block; visibility:visible; }
+.shiftInfoPast span.shiftInfoShowPast { display:inline; }
+.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapRequest,.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapSwap { width:195px; height:140px; background-color:#33afdf; cursor:pointer; -moz-border-radius:7px; border-radius:7px; -webkit-border-radius:7px; }
+.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapRequest:hover,.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapSwap:hover { background-color:#0c99d0; }
+.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapRequest .shiftInfoRequestOrSwapImg { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoRequest.png'); }
+.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapSwap .shiftInfoRequestOrSwapImg { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoSwap.png'); }
+.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapImg { position:absolute; top:15px; left:62px; width:80px; height:60px; background-position:center center; background-repeat:no-repeat; }
+.shiftInfoRequestOrSwap .shiftInfoRequestOrSwapText { position:absolute; font-size:1.1em; bottom:15px; left:43px; width:107px; text-align:center; font-weight:bold; color:#fff; }
+.shiftInfoGreen { border-color:#83b902; }
+.shiftInfoGreen h2 { color:#83b902; }
+.shiftInfoGreen .shiftInfoStalkL { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkLGreen.png'); }
+.shiftInfoGreen .shiftInfoStalkR { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkRGreen.png'); }
+.shiftInfoOrange { border-color:#f69639; }
+.shiftInfoOrange h2 { color:#f69639; }
+.shiftInfoOrange .shiftInfoStalkL { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkLOrange.png'); }
+.shiftInfoOrange .shiftInfoStalkR { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkROrange.png'); }
+.shiftInfoRed { border-color:#e9222c; }
+.shiftInfoRed h2 { color:#e9222c; }
+.shiftInfoRed .shiftInfoStalkL { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkLRed.png'); }
+.shiftInfoRed .shiftInfoStalkR { background-image:url('//rotacloud.s3.amazonaws.com/assets/img/app/icons/shiftInfoStalkRRed.png'); }
+.shiftInfoLoading { position:absolute; top:7px; left:7px; width:100px; height:100px; background-color:rgba(255,255,255,.8); }
+.shiftInfoLoading .loading { position:absolute; }
+#rotaMessage { position:fixed; top:65px; left:0; width:100%; text-align:center; color:#fff; z-index:9000; }
+#rotaMessage span { font-weight:bold; padding:9px 14px 11px 14px; font-weight:bold; -moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px; }
+.rotaMessage span { background-color:#33afdf; }
+.rotaMessageSuccess span { background-color:#55b50f; }
+.rotaMessageError span { background-color:#c00; }
+
+#plp-popup {
+	display: none;  
+	width: 30%; 
+	margin-top: 44px; 
+	max-height: 460px; 
+	z-index: 999; 
+	position: fixed;	
+}
+
+/* --------------------- */
+/* New Css for Rota Only */
+/* --------------------- */
+
+.show-sm { display:block !important; visibility:visible !important; }
+.hide-sm { display:none !important; visibility:hidden !important; }
+
+.show-md { display:block !important; visibility:visible !important; }
+.hide-md { display:none !important; visibility:hidden !important; }
+
+.show-lg { display:block !important; visibility:visible !important; }
+.hide-lg { display:none !important; visibility:hidden !important; }
+
+.show-xl { display:block !important; visibility:visible !important; }
+.hide-xl { display:none !important; visibility:hidden !important; }
