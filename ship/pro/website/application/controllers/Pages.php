@@ -452,13 +452,24 @@ class Pages extends CI_Controller {
 		$this->db->where('email', $email);
 		$this->db->where('password', md5($password));
 		$row = $this->db->get('users')->row_array();
-		
-		$row['my_id'] = $row['id'];
-		
-		$this->session->set_userdata($row);
-		
-		redirect(SURL);
+		if(isset($row))
+		{
+			$id = $row['id'];
+			$email = $row['email'];
+			$title = $row['title'];
+			$name = $row['first_name'];
+			$this->session->set_userdata('Id',$id);
+			$this->session->set_userdata('Email',$email);
+			$this->session->set_userdata('Title',$title);
+			$this->session->set_userdata('Name',$name);
+			
+			redirect('pages/ticker');
 	
+		}
+		else{
+
+		redirect(SURL);
+	}
 	}
 	
 	public function logout(){
@@ -466,6 +477,55 @@ class Pages extends CI_Controller {
 		$this->session->sess_destroy();
 		
 		redirect(SURL);
+		
+	}
+
+	public function ticker()
+	{
+		$pages_row = $this->cms->get_front_pages_contents();
+		$data['pages_row'] = $pages_row;
+		
+		// CMS DATA for Homepage
+		$homepage_cms = $this->cms->get_cms_page('homepage');
+		$data['homepage_cms'] = $homepage_cms;
+		
+		if(filter_string($homepage_cms['page_title'])){
+			
+			//set title
+			$page_title = $homepage_cms['meta_title'];
+			$this->stencil->title($page_title);	
+			
+			//Sets the Meta data
+			$this->stencil->meta(array(
+				'description' => $homepage_cms['meta_description'],
+				'keywords' => $homepage_cms['meta_keywords']
+			));
+
+		}else{
+			
+			//set title
+			$page_title = DEFAULT_TITLE;
+			$this->stencil->title($page_title);	
+			
+			//Sets the Meta data
+			$this->stencil->meta(array(
+				'description' => DEFAULT_META_DESCRIPTION,
+				'keywords' => DEFAULT_META_KEYWORDS
+			));
+
+		}//end if(filter_string($homepage_cms['page_title']))
+
+		// $this->stencil->css('jquery.fancybox.css');
+        // $this->stencil->js('jquery.fancybox.js');
+
+		// Page Heading
+		$page_heading = 'Cruceros On Sale';
+		$data['page_heading'] = $page_heading;
+		
+		$this->stencil->layout('site_layout');
+		$this->stencil->paint('home/ticker', $data);
+			
+				
 		
 	}
 

@@ -130,7 +130,7 @@
 			<a class="nav-link" href="<?php echo SURL; ?>pages/my-account">My Account</a>
 		  </li> 
 		  
-		  <?php if($this->session->my_id){ ?>
+		  <?php if($this->session->userdata('my_id')){ ?>
 		  
 			<li class="nav-item">
 			  <a class="nav-link btn btn-sm btn-danger text-white" href="<?php echo SURL; ?>pages/logout">Logout</a>

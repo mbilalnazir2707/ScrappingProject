@@ -69,9 +69,8 @@ class Home extends CI_Controller {
 		// Page Heading
 		$page_heading = 'Cruceros On Sale';
 		$data['page_heading'] = $page_heading;
-		
 		$this->stencil->layout('site_layout');
-		$this->stencil->paint('home/home', $data);
+		$this->stencil->paint('home/home',$data);
 
 	} // End - public function index()
 

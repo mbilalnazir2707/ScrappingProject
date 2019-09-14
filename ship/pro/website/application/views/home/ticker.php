@@ -1,16 +1,30 @@
-<?php
-include "simple_html_dom.php";
-  $ch = curl_init();
-  curl_setopt($ch,CURLOPT_URL,"https://www.vacationstogo.com");
-  curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1 );
-  curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-  //curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
-  
-  $result = curl_exec($ch);
-  curl_close($ch);
-  $html = new simple_html_dom();
-  $html->load($result);
+<?php 
+
+	include "simple_html_dom.php";
+	$postFields = array ("email" =>  "m.bilal_nazir@yahoo.com");
+	$ch = curl_init();
+	curl_setopt($ch,CURLOPT_URL,"https://www.vacationstogo.com/login.cfm");
+	curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+	curl_setopt($ch,CURLOPT_POST,count($postFields));
+	curl_setopt($ch,CURLOPT_POSTFIELDS,http_build_query($postFields));
+	curl_setopt($ch,CURLOPT_COOKIEJAR,"cookie.txt");
+	$response = curl_exec($ch);
+
+	if($response){
+	curl_setopt($ch,CURLOPT_URL,"https://www.vacationstogo.com/ticker.cfm");
+	curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+	curl_setopt($ch,CURLOPT_COOKIEJAR,"cookie.txt");
+	$response = curl_exec($ch);
+	curl_close($ch);
+ 
+ $html = new simple_html_dom();
+ 
+  $html->load($response);
+ 
   $element =$html->find('select',0)->find('option');
+ 
   foreach ($element as $elemen)
   {
     $data[] = array(
@@ -84,8 +98,9 @@ include "simple_html_dom.php";
     
   }
 
-
+}
 ?>
+
 <div class="container-fluid" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-3">
@@ -235,17 +250,145 @@ include "simple_html_dom.php";
         
     </div>
     <div class="col-sm-6">
-      <h2 class="text-center"> Save up to 82% on Last-Minute Cruises! </h2>
-      <h5 class="text-center">Welcome to America's Clearinghouse for Discount Cruises</h5>
-      <p class="text-center"> <a href="#"> First-Time Visitors Click Here </a> </p>
-      <p> Are you looking for a cruise at an unbelievably low price? Since 1984, Vacations To Go has helped more than seven million travelers save hundreds of millions of dollars on discount cruises!  </p>
-      <p> Our world-famous 90-Day Ticker is a complete listing of last-minute cruises on the world's best cruise lines. If you see a cruise there that interests you, don't delay! Average availability is less than seven days and many cruises sell out within hours of listing. </p>
-      <p> If you prefer to book further in advance, or if you have a specific cruise in mind, use our Find a Bargain tool. You'll find a treasure trove of early bird discounts, two-for-ones and other cut-rate promotions, on every cruise line in the world. </p>
-      <p> Once you've found your cruise, call us at +1-713-974-2121 or email us for a quote or reservation. Our fast quotes and friendly service make booking a breeze. </p>
+      <h1 class="text-center"> Find A Bargain </h1>
+
+      <div class="card-body">
+             <form action ="<?php echo SURL;?>/pages/ticker" method = "post">
+            <div class="form-row">
+              
+                <div class="col-6 form-group">
+                    <select class="form-control form-control-sm">
+                     <?php 
+                      foreach($data as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                    </select>
+                </div>
+                
+                <div class="col-6 form-group">
+                    <select class="form-control form-control-sm">
+                        <?php 
+                      foreach($data1 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                    </select>
+                </div>
+                
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control form-control-sm">
+                    <?php 
+                      foreach($data2 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control form-control-sm">
+                    <?php 
+                      foreach($data3 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control form-control-sm">
+                    <?php 
+                      foreach($data4 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control form-control-sm">
+                   <?php 
+                      foreach($data5 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control form-control-sm">
+                    <?php 
+                      foreach($data6 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control form-control-sm">
+                    <?php 
+                      foreach($data7 as $values) {
+                        
+                      ?>
+                        <option value = "<?php echo $values['value'];?>"><?php echo $values['text'];?>  </option>
+                       <?php 
+                     
+                     }
+                        ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" /> Return to Same Port
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="submit" value ="Show Me the Deals" name ="deals" />
+                </label>
+            </div>
+
+          </form>  
+        </div>
+        
       
       <div class="text-center"> 
     
-        <img src="bb.png" class="img-fluid" width="100px;" />
+        <img src="<?php echo ASSETS?>images/bb.png" class="img-fluid" width="100px;" />
         <p>
             Executive Chairman
         </p>
