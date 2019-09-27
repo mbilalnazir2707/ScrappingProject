@@ -22,6 +22,8 @@ class Pages extends CI_Controller {
 		//Sets the variable $footer_scripts to use the slice head (/views/slices/footer_scripts.php)
 		$this->stencil->slice('footer_scripts');
 
+		$this->load->library('session');
+
 		// left_pane
 		// $this->stencil->slice('left_pane');
 		$this->stencil->js('kod_scripts/form_validation.js');
@@ -462,7 +464,6 @@ class Pages extends CI_Controller {
 			$this->session->set_userdata('Email',$email);
 			$this->session->set_userdata('Title',$title);
 			$this->session->set_userdata('Name',$name);
-			
 			redirect('pages/ticker');
 	
 		}
@@ -482,51 +483,151 @@ class Pages extends CI_Controller {
 
 	public function ticker()
 	{
-		$pages_row = $this->cms->get_front_pages_contents();
-		$data['pages_row'] = $pages_row;
+		/*if($this->session->userdata('Id') == TRUE )
+		{*/
+			$pages_row = $this->cms->get_front_pages_contents();
+			$data['pages_row'] = $pages_row;
 		
-		// CMS DATA for Homepage
-		$homepage_cms = $this->cms->get_cms_page('homepage');
-		$data['homepage_cms'] = $homepage_cms;
+			// CMS DATA for Homepage
+			$homepage_cms = $this->cms->get_cms_page('homepage');
+			$data['homepage_cms'] = $homepage_cms;
 		
-		if(filter_string($homepage_cms['page_title'])){
+			if(filter_string($homepage_cms['page_title']))
+			{
 			
-			//set title
-			$page_title = $homepage_cms['meta_title'];
-			$this->stencil->title($page_title);	
+				//set title
+				$page_title = $homepage_cms['meta_title'];
+				$this->stencil->title($page_title);	
 			
-			//Sets the Meta data
-			$this->stencil->meta(array(
-				'description' => $homepage_cms['meta_description'],
-				'keywords' => $homepage_cms['meta_keywords']
-			));
+				//Sets the Meta data
+				$this->stencil->meta(array(
+					'description' => $homepage_cms['meta_description'],
+					'keywords' => $homepage_cms['meta_keywords']
+				));
 
-		}else{
+			}
+			else
+			{
 			
-			//set title
-			$page_title = DEFAULT_TITLE;
-			$this->stencil->title($page_title);	
+				//set title
+				$page_title = DEFAULT_TITLE;
+				$this->stencil->title($page_title);	
 			
-			//Sets the Meta data
-			$this->stencil->meta(array(
-				'description' => DEFAULT_META_DESCRIPTION,
-				'keywords' => DEFAULT_META_KEYWORDS
-			));
+				//Sets the Meta data
+				$this->stencil->meta(array(
+					'description' => DEFAULT_META_DESCRIPTION,
+					'keywords' => DEFAULT_META_KEYWORDS
+				));
 
-		}//end if(filter_string($homepage_cms['page_title']))
+			}//end if(filter_string($homepage_cms['page_title']))
 
-		// $this->stencil->css('jquery.fancybox.css');
-        // $this->stencil->js('jquery.fancybox.js');
+			// $this->stencil->css('jquery.fancybox.css');
+        	// $this->stencil->js('jquery.fancybox.js');
 
-		// Page Heading
-		$page_heading = 'Cruceros On Sale';
-		$data['page_heading'] = $page_heading;
+			// Page Heading
+			$page_heading = 'Find A Bargain';
+			$data['page_heading'] = $page_heading;
 		
-		$this->stencil->layout('site_layout');
-		$this->stencil->paint('home/ticker', $data);
-			
-				
-		
+			$this->stencil->layout('site_layout');
+			$this->stencil->paint('home/ticker', $data);
+		/*}
+		else
+		{
+			redirect('pages/register_login');
+		}		
+		*/
 	}
+
+	public function tickerPost()
+	{
+		extract($this->input->post());
+		$sm = $SMonth;
+		$tm = $TMonth;
+		$r = $RegionID;
+		$l = $LineID;
+		$s = $ShipID;
+		$n = $Lenght;
+		$d = $DPortID;
+		$v = $VPortID;
+		$postFields["data"] = array("SMonth" => $sm,
+									"TMonth" => $tm,
+									"RegionID" => $r,
+									"LineID" => $l,
+									"ShipID" => $s,
+									"Lenght" => $l,
+									"DPortID" => $d,
+									"VPortID" => $v
+								);
+		$this->load->view('home/tickerPost',$postFields);
+
+		/*if($this->session->userdata('Id') == TRUE )
+		{
+			$pages_row = $this->cms->get_front_pages_contents();
+			$data['pages_row'] = $pages_row;
+		
+			// CMS DATA for Homepage
+			$homepage_cms = $this->cms->get_cms_page('homepage');
+			$data['homepage_cms'] = $homepage_cms;
+		
+			if(filter_string($homepage_cms['page_title']))
+			{
+			
+				//set title
+				$page_title = $homepage_cms['meta_title'];
+				$this->stencil->title($page_title);	
+			
+				//Sets the Meta data
+				$this->stencil->meta(array(
+					'description' => $homepage_cms['meta_description'],
+					'keywords' => $homepage_cms['meta_keywords']
+				));
+
+			}
+			else
+			{
+			
+				//set title
+				$page_title = DEFAULT_TITLE;
+				$this->stencil->title($page_title);	
+			
+				//Sets the Meta data
+				$this->stencil->meta(array(
+					'description' => DEFAULT_META_DESCRIPTION,
+					'keywords' => DEFAULT_META_KEYWORDS
+				));
+
+			}//end if(filter_string($homepage_cms['page_title']))
+
+			// $this->stencil->css('jquery.fancybox.css');
+        	// $this->stencil->js('jquery.fancybox.js');
+
+			// Page Heading
+			$page_heading = 'Find A Bargain';
+			$data['page_heading'] = $page_heading;
+		
+			$this->stencil->layout('site_layout');
+			$this->stencil->paint('home/tickerPost', $data);
+		}
+		else
+		{
+			redirect('pages/register_login');
+		}		
+		*/
+	}
+
+
+	public function FastDeals($fastdeals=0)
+	{
+		$fastDeals = $fastdeals;
+		if(!(isset($fastDeals)) || $fastDeals == 0)
+		{
+			redirect('home/ticker');
+		}
+
+		else{
+			 $this->load->view('home/FastDeals',$fastDeals);
+		}
+	}
+
 
 } // End - CI Class

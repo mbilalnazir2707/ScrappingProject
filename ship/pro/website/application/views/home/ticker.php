@@ -1,8 +1,24 @@
 <?php 
 
 	include "simple_html_dom.php";
-	$postFields = array ("email" =>  "m.bilal_nazir@yahoo.com");
-	$ch = curl_init();
+	$postFields = array ("LogEmail" =>  "m.bilal_nazir@yahoo.com",
+              "OptIn"=>"yes",
+              "WWWRetry" => "0",
+              "SavePW" => "Y",
+              "ResavePW" => "Y",
+              "LastFocus" => "Yellow",
+              "IntroTextInUse" => "default",
+              "Title" => "N",
+              "Title" => "",
+              "FirstName" => "",
+              "LastName" => "",
+              "Email" => "",
+              "VerifyEmail" => "",
+              "country" => "",
+              "Zip" => "",
+              "YellowBoxSubmit" => "Go!"
+  );
+  $ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL,"https://www.vacationstogo.com/login.cfm");
 	curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
 	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
@@ -10,14 +26,17 @@
 	curl_setopt($ch,CURLOPT_POSTFIELDS,http_build_query($postFields));
 	curl_setopt($ch,CURLOPT_COOKIEJAR,"cookie.txt");
 	$response = curl_exec($ch);
+ 
 
-	if($response){
+	if($response)
+  {
 	curl_setopt($ch,CURLOPT_URL,"https://www.vacationstogo.com/ticker.cfm");
 	curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
 	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 	curl_setopt($ch,CURLOPT_COOKIEJAR,"cookie.txt");
 	$response = curl_exec($ch);
 	curl_close($ch);
+
  
  $html = new simple_html_dom();
  
@@ -115,11 +134,11 @@
             <h5> Find A Bargain </h5>
           </div>
           <div class="card-body">
-             <form action ="<?php echo SURL;?>/pages/ticker" method = "post">
+          <form action ="<?php echo SURL;?>pages/tickerPost" method = "post">
             <div class="form-row">
               
                 <div class="col-6 form-group">
-                    <select class="form-control form-control-sm">
+                    <select  name = "SMonth" class="form-control form-control-sm">
                      <?php 
                       foreach($data as $values) {
                         
@@ -132,7 +151,7 @@
                     </select>
                 </div>
                 
-                <div class="col-6 form-group">
+                <div name = "TMonth "class="col-6 form-group">
                     <select class="form-control form-control-sm">
                         <?php 
                       foreach($data1 as $values) {
@@ -149,7 +168,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name ="RegionID"  class="form-control form-control-sm">
                     <?php 
                       foreach($data2 as $values) {
                         
@@ -163,7 +182,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "LineID" class="form-control form-control-sm">
                     <?php 
                       foreach($data3 as $values) {
                         
@@ -177,7 +196,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "ShipID" class="form-control form-control-sm">
                     <?php 
                       foreach($data4 as $values) {
                         
@@ -191,7 +210,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "Lenght" class="form-control form-control-sm">
                    <?php 
                       foreach($data5 as $values) {
                         
@@ -205,7 +224,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "DPortID" class="form-control form-control-sm">
                     <?php 
                       foreach($data6 as $values) {
                         
@@ -219,7 +238,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "VPortID"class="form-control form-control-sm">
                     <?php 
                       foreach($data7 as $values) {
                         
@@ -253,11 +272,11 @@
       <h1 class="text-center"> Find A Bargain </h1>
 
       <div class="card-body">
-             <form action ="<?php echo SURL;?>/pages/ticker" method = "post">
+             <form action ="<?php echo SURL;?>pages/tickerPost" method = "post">
             <div class="form-row">
               
                 <div class="col-6 form-group">
-                    <select class="form-control form-control-sm">
+                    <select name = "SMonth" class="form-control form-control-sm">
                      <?php 
                       foreach($data as $values) {
                         
@@ -271,7 +290,7 @@
                 </div>
                 
                 <div class="col-6 form-group">
-                    <select class="form-control form-control-sm">
+                    <select name = "TMonth" class="form-control form-control-sm">
                         <?php 
                       foreach($data1 as $values) {
                         
@@ -287,7 +306,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "RegionID" class="form-control form-control-sm">
                     <?php 
                       foreach($data2 as $values) {
                         
@@ -301,7 +320,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "LineID" class="form-control form-control-sm">
                     <?php 
                       foreach($data3 as $values) {
                         
@@ -315,7 +334,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "ShipID" class="form-control form-control-sm">
                     <?php 
                       foreach($data4 as $values) {
                         
@@ -329,7 +348,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "Lenght" class="form-control form-control-sm">
                    <?php 
                       foreach($data5 as $values) {
                         
@@ -343,7 +362,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "DPortID" class="form-control form-control-sm">
                     <?php 
                       foreach($data6 as $values) {
                         
@@ -357,7 +376,7 @@
             </div>
             
             <div class="form-group">
-                <select class="form-control form-control-sm">
+                <select name = "VPortID" class="form-control form-control-sm">
                     <?php 
                       foreach($data7 as $values) {
                         
